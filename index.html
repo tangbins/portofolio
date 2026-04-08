@@ -1,537 +1,853 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portofolio Bintang Akbar Sutjipto</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bintang Akbar Sutjipto — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-      body {
-        font-family: "Orbitron", sans-serif;
-      }
-      .glass {
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(192, 192, 192, 0.3); /* aksen silver */
-      }
-      .metallic-text {
-        background: linear-gradient(90deg, #dcdcdc, #a9a9a9, #f5f5f5, #c0c0c0);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-weight: bold;
-      }
-      .purple-glow {
-        text-shadow:
-          0 0 10px rgba(168, 85, 247, 0.8),
-          0 0 20px rgba(192, 192, 192, 0.6);
-      }
-    </style>
-  </head>
-  <body
-    class="bg-gradient-to-br from-black via-gray-900 to-purple-950 text-white"
-  >
-    <!-- Navbar -->
-    <nav
-      class="flex justify-between items-center px-4 md:px-10 py-6 glass fixed w-full top-0 z-50"
-    >
-      <h1 class="text-2xl font-bold tracking-widest metallic-text">BINTANG</h1>
-      <ul class="flex space-x-6">
-        <li>
-          <a href="#about" class="hover:text-purple-400 transition">About</a>
-        </li>
-        <li>
-          <a href="#projects" class="hover:text-purple-400 transition"
-            >Projects</a
-          >
-        </li>
-        <li>
-          <a href="#contact" class="hover:text-purple-400 transition"
-            >Contact</a
-          >
-        </li>
-      </ul>
-    </nav>
+    :root {
+      --bg: #080810;
+      --bg2: #0e0e1a;
+      --bg3: #13131f;
+      --surface: rgba(255,255,255,0.04);
+      --surface2: rgba(255,255,255,0.07);
+      --border: rgba(255,255,255,0.08);
+      --border2: rgba(139,92,246,0.3);
+      --purple: #8b5cf6;
+      --purple2: #a78bfa;
+      --purple3: #c4b5fd;
+      --silver: #94a3b8;
+      --text: #f1f5f9;
+      --text2: #94a3b8;
+      --text3: #64748b;
+    }
 
-    <!-- Hero Section -->
-    <section
-      class="h-screen flex flex-col justify-center items-center text-center px-6"
-    >
-      <h2
-        class="text-5xl md:text-7xl font-extrabold text-purple-400 purple-glow"
-      >
-        Hello, I’m Bintang
-      </h2>
+    html { scroll-behavior: smooth; }
 
-      <p class="mt-4 text-lg md:text-2xl text-gray-300 max-w-2xl">
-        Informatics student at
-        <span class="text-purple-300 font-semibold">Universitas Djuanda</span>,
-        passionate in <span class="metallic-text">Web Development</span> and
-        <span class="text-purple-300">Visual Creativity</span>.
-      </p>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
 
-      <a
-        href="#projects"
-        class="mt-8 px-6 py-3 bg-purple-600 text-black font-bold rounded-xl shadow-lg hover:bg-purple-500 transition"
-      >
-        See My Work
-      </a>
-      <div class="flex space-x-6 mt-8 text-gray-400">
-        <a
-          href="https://github.com/tangbins"
-          target="_blank"
-          class="hover:text-purple-400 transition"
-          aria-label="GitHub"
-        >
-          GitHub
-        </a>
-        <a
-          href="https://www.linkedin.com/in/bintang-akbar-sutjipto-b1677531b/"
-          target="_blank"
-          class="hover:text-purple-400 transition"
-          aria-label="LinkedIn"
-        >
-          LinkedIn
-        </a>
-        <a
-          href="https://www.instagram.com/bintang_sutjipto/"
-          target="_blank"
-          class="hover:text-purple-400 transition"
-          aria-label="Instagram"
-        >
-          Instagram
-        </a>
+    /* SCROLLBAR */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 2px; }
+
+    /* NOISE OVERLAY */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* GRADIENT ORBS */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb1 { width: 600px; height: 600px; background: rgba(139,92,246,0.12); top: -200px; right: -200px; }
+    .orb2 { width: 400px; height: 400px; background: rgba(139,92,246,0.08); bottom: 20%; left: -150px; }
+    .orb3 { width: 300px; height: 300px; background: rgba(168,85,247,0.06); top: 60%; right: 10%; }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(8,8,16,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+    nav.scrolled { padding: 1rem 2rem; }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      background: linear-gradient(135deg, #fff 0%, var(--purple3) 50%, var(--purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 1px;
+      background: var(--purple);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+    .nav-links a:hover { color: var(--purple3); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    /* HERO */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--border2);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      color: var(--purple3);
+      background: rgba(139,92,246,0.08);
+      margin-bottom: 2rem;
+      animation: fadeDown 0.6s ease both;
+    }
+    .hero-badge span { width: 6px; height: 6px; background: var(--purple); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.5)} }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.7s ease 0.1s both;
+    }
+    .hero-title .line1 { display: block; color: var(--text); }
+    .hero-title .line2 {
+      display: block;
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple3) 60%, #e879f9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--text2);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.7s ease 0.2s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeUp 0.7s ease 0.3s both;
+    }
+    .btn-primary {
+      padding: 0.85rem 2rem;
+      background: var(--purple);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      letter-spacing: 0.03em;
+    }
+    .btn-primary:hover { background: var(--purple2); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(139,92,246,0.35); }
+    .btn-outline {
+      padding: 0.85rem 2rem;
+      background: transparent;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--purple2); color: var(--purple3); transform: translateY(-2px); }
+
+    .hero-socials {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      animation: fadeUp 0.7s ease 0.4s both;
+    }
+    .hero-socials a {
+      color: var(--text3);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    .hero-socials a:hover { color: var(--purple3); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text3);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      animation: fadeUp 1s ease 0.8s both;
+    }
+    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--purple), transparent); animation: scrollDown 2s infinite; }
+    @keyframes scrollDown { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
+
+    /* SECTION BASE */
+    section { position: relative; z-index: 1; }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 1rem;
+    }
+    .section-label::before { content: ''; width: 20px; height: 1px; background: var(--purple); }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .section-sub { color: var(--text2); font-size: 1.05rem; line-height: 1.7; max-width: 560px; }
+
+    /* ABOUT */
+    #about { padding: 8rem 2rem; }
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-frame {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg3);
+    }
+    .about-img-frame img { width: 100%; height: 100%; object-fit: cover; }
+    .about-img-badge {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      border-radius: 16px;
+      padding: 1rem 1.25rem;
+      text-align: center;
+    }
+    .about-img-badge .num { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: var(--purple3); }
+    .about-img-badge .lbl { font-size: 0.75rem; color: var(--text3); }
+    .about-corner {
+      position: absolute;
+      top: -1rem;
+      left: -1rem;
+      width: 80px;
+      height: 80px;
+      border-top: 2px solid var(--purple);
+      border-left: 2px solid var(--purple);
+      border-radius: 8px 0 0 0;
+      opacity: 0.5;
+    }
+    .about-para { color: var(--text2); line-height: 1.8; margin-bottom: 1rem; font-size: 1rem; }
+    .about-para strong { color: var(--purple3); font-weight: 500; }
+
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+    .skill-tag {
+      padding: 0.35rem 0.9rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      color: var(--text2);
+      transition: all 0.2s;
+      cursor: default;
+    }
+    .skill-tag:hover { border-color: var(--border2); color: var(--purple3); background: rgba(139,92,246,0.08); transform: translateY(-1px); }
+
+    /* PROJECTS */
+    #projects { padding: 8rem 2rem; background: linear-gradient(180deg, transparent 0%, rgba(139,92,246,0.03) 50%, transparent 100%); }
+    .projects-inner { max-width: 1200px; margin: 0 auto; }
+    .projects-header { text-align: center; margin-bottom: 4rem; }
+    .projects-header .section-label { justify-content: center; }
+
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s;
+      group: true;
+    }
+    .project-card:hover { border-color: var(--border2); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(139,92,246,0.12); }
+
+    .project-preview {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: var(--bg3);
+    }
+    .project-preview iframe { width: 100%; height: 100%; border: none; pointer-events: none; transform: scale(0.85); transform-origin: top center; }
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8,8,16,0.9) 0%, transparent 50%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 1rem;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .project-card:hover .project-overlay { opacity: 1; }
+    .project-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      background: var(--purple);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .project-link-btn:hover { background: var(--purple2); }
+    .project-body { padding: 1.25rem 1.5rem; }
+    .project-num { font-size: 0.7rem; font-weight: 600; color: var(--purple); letter-spacing: 0.15em; margin-bottom: 0.4rem; }
+    .project-title { font-weight: 600; font-size: 1rem; margin-bottom: 0.4rem; color: var(--text); }
+    .project-desc { font-size: 0.85rem; color: var(--text2); line-height: 1.6; }
+    .project-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .project-tag {
+      padding: 0.2rem 0.6rem;
+      background: rgba(139,92,246,0.1);
+      border: 1px solid rgba(139,92,246,0.2);
+      border-radius: 6px;
+      font-size: 0.7rem;
+      color: var(--purple3);
+      font-weight: 500;
+    }
+
+    /* PHOTOGRAPHY */
+    #photography { padding: 8rem 2rem; }
+    .photo-inner { max-width: 1200px; margin: 0 auto; }
+    .photo-header { margin-bottom: 3rem; }
+    .photo-masonry {
+      columns: 3;
+      column-gap: 1rem;
+    }
+    .photo-item {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+    .photo-item:hover { border-color: var(--border2); transform: scale(1.01); }
+    .photo-item img { width: 100%; display: block; }
+
+    /* CERTIFICATES */
+    #certificates { padding: 8rem 2rem; background: linear-gradient(180deg, transparent, rgba(139,92,246,0.03), transparent); }
+    .cert-inner { max-width: 1100px; margin: 0 auto; }
+    .cert-header { text-align: center; margin-bottom: 4rem; }
+    .cert-header .section-label { justify-content: center; }
+    .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .cert-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .cert-card:hover { border-color: var(--border2); transform: translateY(-4px); box-shadow: 0 20px 50px rgba(139,92,246,0.1); }
+    .cert-img { width: 100%; height: 200px; object-fit: cover; display: block; }
+    .cert-body { padding: 1.25rem; }
+    .cert-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; color: var(--text); }
+    .cert-desc { font-size: 0.82rem; color: var(--text2); line-height: 1.6; }
+
+    /* CONTACT */
+    #contact { padding: 8rem 2rem; }
+    .contact-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+    }
+    .contact-info h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .contact-info p { color: var(--text2); line-height: 1.7; margin-bottom: 2rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .contact-link:hover { border-color: var(--border2); background: var(--surface2); }
+    .contact-link-icon { width: 32px; height: 32px; background: rgba(139,92,246,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+    .contact-link-text { flex: 1; }
+    .contact-link-label { font-size: 0.7rem; color: var(--text3); }
+    .contact-link-val { font-size: 0.85rem; color: var(--text); font-weight: 500; }
+    .contact-link-arrow { color: var(--text3); font-size: 0.9rem; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label { font-size: 0.8rem; font-weight: 500; color: var(--text2); letter-spacing: 0.03em; }
+    .form-group input, .form-group textarea {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.85rem 1rem;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--border2); }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text3); }
+    .form-group textarea { height: 120px; resize: none; }
+    .form-submit {
+      padding: 0.9rem;
+      background: var(--purple);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .form-submit:hover { background: var(--purple2); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(139,92,246,0.3); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      color: var(--text3);
+      font-size: 0.85rem;
+      position: relative;
+      z-index: 1;
+    }
+    footer span { color: var(--purple3); }
+
+    /* DIVIDER */
+    .section-divider {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .cert-grid { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .photo-masonry { columns: 2; }
+      .nav-links { display: none; }
+      .about-img-badge { right: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">BINTANG</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#photography">Photography</a></li>
+    <li><a href="#certificates">Certificates</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-badge">
+    <span></span> Available for collaboration
+  </div>
+  <h1 class="hero-title">
+    <span class="line1">Hello, I'm</span>
+    <span class="line2">Bintang Akbar</span>
+  </h1>
+  <p class="hero-sub">
+    Informatics student at <strong style="color:var(--purple3)">Universitas Djuanda</strong>, passionate about web development, creative design, and visual storytelling.
+  </p>
+  <div class="hero-actions">
+    <a href="#projects" class="btn-primary">See My Work →</a>
+    <a href="#contact" class="btn-outline">Get In Touch</a>
+  </div>
+  <div class="hero-socials">
+    <a href="https://github.com/tangbins" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/bintang-akbar-sutjipto-b1677531b/" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com/bintang_sutjipto/" target="_blank">Instagram</a>
+  </div>
+  <div class="hero-scroll">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-img-wrap reveal">
+      <div class="about-corner"></div>
+      <div class="about-img-frame">
+        <img src="images/pp.jpeg" alt="Bintang Akbar Sutjipto" />
       </div>
-    </section>
+      <div class="about-img-badge">
+        <div class="num">3+</div>
+        <div class="lbl">Years Learning</div>
+      </div>
+    </div>
+    <div class="reveal" style="transition-delay:0.15s">
+      <div class="section-label">About Me</div>
+      <h2 class="section-title">Building things<br>that matter</h2>
+      <p class="about-para">Saya adalah <strong>mahasiswa aktif Universitas Djuanda</strong> dengan ketertarikan besar pada dunia teknologi, desain, dan visual kreatif.</p>
+      <p class="about-para">Aktif sebagai <strong>anggota UKM Pelukis Cahaya</strong> dan memiliki latar belakang pendidikan SMK Amaliah jurusan <strong>RPL / PPLG</strong>.</p>
+      <p class="about-para">Berpengalaman magang di <strong>PT Exorty Indonesia</strong> & <strong>Starcore Indonesia</strong> — membuat survey website menggunakan React Vite dan desain UI/UX dengan Figma.</p>
+      <div class="skills-grid">
+        <span class="skill-tag">HTML & CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Laravel</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Lightroom</span>
+        <span class="skill-tag">Canva</span>
+        <span class="skill-tag">Photography</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- About Section -->
-    <section
-      id="about"
-      class="min-h-screen flex items-center justify-center px-4 md:px-10"
-    >
-      <div
-        class="max-w-6xl w-full glass p-10 rounded-2xl shadow-xl grid md:grid-cols-2 gap-10 items-center"
-      >
-        <!-- Text -->
-        <div class="text-left">
-          <h3 class="text-3xl font-bold text-purple-400 mb-6 purple-glow">
-            About Me
-          </h3>
+<div class="section-divider"></div>
 
-          <p class="text-gray-300 leading-relaxed mb-4">
-            Saya adalah
-            <span class="text-purple-300 font-semibold"
-              >mahasiswa aktif Universitas Djuanda</span
-            >
-            yang memiliki ketertarikan besar pada dunia teknologi, desain, dan
-            visual kreatif.
-          </p>
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="projects-inner">
+    <div class="projects-header reveal">
+      <div class="section-label">My Work</div>
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-sub" style="margin: 0 auto">Beberapa proyek web yang telah saya bangun menggunakan HTML, CSS, JavaScript, dan API.</p>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <div class="project-preview">
+          <iframe src="https://tangbins.github.io/form-login/" loading="lazy"></iframe>
+          <div class="project-overlay"><a href="https://tangbins.github.io/form-login/" target="_blank" class="project-link-btn">Open ↗</a></div>
+        </div>
+        <div class="project-body">
+          <div class="project-num">01</div>
+          <div class="project-title">Form Login</div>
+          <div class="project-desc">UI form login dengan validasi interaktif dan desain modern.</div>
+          <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JS</span></div>
+        </div>
+      </div>
+      <div class="project-card reveal" style="transition-delay:0.1s">
+        <div class="project-preview">
+          <iframe src="https://tangbins.github.io/am-mart-dummy/" loading="lazy"></iframe>
+          <div class="project-overlay"><a href="https://tangbins.github.io/am-mart-dummy/" target="_blank" class="project-link-btn">Open ↗</a></div>
+        </div>
+        <div class="project-body">
+          <div class="project-num">02</div>
+          <div class="project-title">AM Mart Website</div>
+          <div class="project-desc">Website toko dummy dengan tampilan storefront yang menarik.</div>
+          <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JS</span></div>
+        </div>
+      </div>
+      <div class="project-card reveal" style="transition-delay:0.2s">
+        <div class="project-preview">
+          <iframe src="https://tangbins.github.io/weather-now/" loading="lazy"></iframe>
+          <div class="project-overlay"><a href="https://tangbins.github.io/weather-now/" target="_blank" class="project-link-btn">Open ↗</a></div>
+        </div>
+        <div class="project-body">
+          <div class="project-num">03</div>
+          <div class="project-title">Weather App</div>
+          <div class="project-desc">Aplikasi cuaca real-time menggunakan weather API.</div>
+          <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">JS</span><span class="project-tag">API</span></div>
+        </div>
+      </div>
+      <div class="project-card reveal" style="transition-delay:0.05s">
+        <div class="project-preview">
+          <iframe src="https://tangbins.github.io/happy-new-year/" loading="lazy"></iframe>
+          <div class="project-overlay"><a href="https://tangbins.github.io/happy-new-year/" target="_blank" class="project-link-btn">Open ↗</a></div>
+        </div>
+        <div class="project-body">
+          <div class="project-num">04</div>
+          <div class="project-title">New Year Card 1</div>
+          <div class="project-desc">Kartu ucapan tahun baru interaktif dengan animasi.</div>
+          <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JS</span></div>
+        </div>
+      </div>
+      <div class="project-card reveal" style="transition-delay:0.15s">
+        <div class="project-preview">
+          <iframe src="https://tangbins.github.io/happy-new-year-2/" loading="lazy"></iframe>
+          <div class="project-overlay"><a href="https://tangbins.github.io/happy-new-year-2/" target="_blank" class="project-link-btn">Open ↗</a></div>
+        </div>
+        <div class="project-body">
+          <div class="project-num">05</div>
+          <div class="project-title">New Year Card 2</div>
+          <div class="project-desc">Varian kedua kartu tahun baru dengan efek visual berbeda.</div>
+          <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JS</span></div>
+        </div>
+      </div>
+      <div class="project-card reveal" style="transition-delay:0.25s">
+        <div class="project-preview">
+          <iframe src="https://tangbins.github.io/happy-new-year-3/" loading="lazy"></iframe>
+          <div class="project-overlay"><a href="https://tangbins.github.io/happy-new-year-3/" target="_blank" class="project-link-btn">Open ↗</a></div>
+        </div>
+        <div class="project-body">
+          <div class="project-num">06</div>
+          <div class="project-title">New Year Card 3</div>
+          <div class="project-desc">Varian ketiga dengan desain paling elaborate.</div>
+          <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JS</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <p class="text-gray-300 leading-relaxed mb-4">
-            Saat ini saya merupakan
-            <span class="metallic-text">anggota aktif UKM Pelukis Cahaya</span>
-            dan memiliki latar belakang pendidikan SMK di
-            <span class="text-purple-300">SMK Amaliah</span> jurusan
-            <span class="text-purple-300">RPL / PPLG</span>.
-          </p>
+<div class="section-divider"></div>
 
-          <p class="text-gray-300 leading-relaxed mb-6">
-            Saya pernah menjalani
-            <span class="metallic-text"
-              >PKL / Magang di PT Exorty Indonesia</span
-            >, yang memperkuat pemahaman saya dalam pengembangan aplikasi dan
-            kerja tim di lingkungan profesional.
-          </p>
+<!-- PHOTOGRAPHY -->
+<section id="photography">
+  <div class="photo-inner">
+    <div class="photo-header reveal">
+      <div class="section-label">Visual Work</div>
+      <h2 class="section-title">Photography</h2>
+      <p class="section-sub">Koleksi visual stories yang ditangkap melalui cahaya, komposisi, dan emosi.</p>
+    </div>
+    <div class="photo-masonry reveal" style="transition-delay:0.15s">
+      <div class="photo-item"><img src="images/bintang.jpeg" alt="Photography 1" /></div>
+      <div class="photo-item"><img src="images/kak ayu.jpg" alt="Photography 4" /></div>
+      <div class="photo-item"><img src="images/bunga.jpg" alt="Photography 3" /></div>
+      <div class="photo-item"><img src="images/kak anom.jpg" alt="Photography 2" /></div>
+      <div class="photo-item"><img src="images/kak salsa.jpg" alt="Photography 5" /></div>
+      <div class="photo-item"><img src="images/kak ayu2.jpg" alt="Photography 6" /></div>
+    </div>
+  </div>
+</section>
 
-          <div>
-            <h4 class="text-xl font-semibold text-purple-300 mb-3">
-              Skills & Tools
-            </h4>
-            <div class="flex flex-wrap gap-3 text-sm">
-              <span class="px-3 py-1 glass rounded-full">Frontend</span>
-              <span class="px-3 py-1 glass rounded-full">Backend (Basic)</span>
-              <span class="px-3 py-1 glass rounded-full">Laravel</span>
-              <span class="px-3 py-1 glass rounded-full">React</span>
-              <span class="px-3 py-1 glass rounded-full">Python</span>
-              <span class="px-3 py-1 glass rounded-full">JavaScript</span>
-              <span class="px-3 py-1 glass rounded-full">C++</span>
-              <span class="px-3 py-1 glass rounded-full">Photography</span>
-              <span class="px-3 py-1 glass rounded-full">Lightroom</span>
-              <span class="px-3 py-1 glass rounded-full">Canva</span>
-              <span class="px-3 py-1 glass rounded-full">Figma</span>
-            </div>
+<div class="section-divider"></div>
+
+<!-- CERTIFICATES -->
+<section id="certificates">
+  <div class="cert-inner">
+    <div class="cert-header reveal">
+      <div class="section-label">Achievements</div>
+      <h2 class="section-title">Certificates</h2>
+      <p class="section-sub" style="margin: 0 auto">Pengakuan dan pencapaian yang diraih dalam perjalanan belajar.</p>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card reveal">
+        <img src="images/sertifikat1.jpg" alt="Magang Starcore" class="cert-img" />
+        <div class="cert-body">
+          <div class="cert-title">Magang Starcore Indonesia</div>
+          <div class="cert-desc">Membuat website survey dengan React Vite & desain UI/UX dengan Figma.</div>
+        </div>
+      </div>
+      <div class="cert-card reveal" style="transition-delay:0.1s">
+        <img src="images/sertifikat2.JPG" alt="Iympact Mengajar" class="cert-img" />
+        <div class="cert-body">
+          <div class="cert-title">Iympact Mengajar</div>
+          <div class="cert-desc">Anggota pengajar & PDD dari Iympact Mengajar Bogor.</div>
+        </div>
+      </div>
+      <div class="cert-card reveal" style="transition-delay:0.2s">
+        <img src="images/sertifikat3.jpeg" alt="Juara Lomba Coding" class="cert-img" />
+        <div class="cert-body">
+          <div class="cert-title">Juara Lomba Coding Nasional</div>
+          <div class="cert-desc">Lomba Coding Nasional by Algorithmics Serpong × SoftUni Indonesia.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="section-label">Contact</div>
+      <h2 class="contact-info" style="font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:1rem;">Let's work<br>together</h2>
+      <p style="color:var(--text2);line-height:1.7;margin-bottom:2rem">Terbuka untuk kolaborasi, freelance, atau sekadar ngobrol soal teknologi dan desain.</p>
+      <div class="contact-links">
+        <a href="mailto:sutjiptobintang@gmail.com" class="contact-link">
+          <div class="contact-link-icon">✉</div>
+          <div class="contact-link-text">
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-val">sutjiptobintang@gmail.com</div>
           </div>
-        </div>
-
-        <!-- Photo -->
-        <div class="flex justify-center">
-          <div
-            class="w-64 h-64 rounded-2xl overflow-hidden border border-gray-600 shadow-lg"
-          >
-            <img
-              src="images/pp.jpeg"
-              alt="Foto Bintang"
-              class="w-full h-full object-cover"
-            />
+          <span class="contact-link-arrow">↗</span>
+        </a>
+        <a href="https://github.com/tangbins" target="_blank" class="contact-link">
+          <div class="contact-link-icon">⌥</div>
+          <div class="contact-link-text">
+            <div class="contact-link-label">GitHub</div>
+            <div class="contact-link-val">github.com/tangbins</div>
           </div>
-        </div>
+          <span class="contact-link-arrow">↗</span>
+        </a>
+        <a href="https://www.linkedin.com/in/bintang-akbar-sutjipto-b1677531b/" target="_blank" class="contact-link">
+          <div class="contact-link-icon">in</div>
+          <div class="contact-link-text">
+            <div class="contact-link-label">LinkedIn</div>
+            <div class="contact-link-val">Bintang Akbar Sutjipto</div>
+          </div>
+          <span class="contact-link-arrow">↗</span>
+        </a>
+        <a href="https://www.instagram.com/bintang_sutjipto/" target="_blank" class="contact-link">
+          <div class="contact-link-icon">◎</div>
+          <div class="contact-link-text">
+            <div class="contact-link-label">Instagram</div>
+            <div class="contact-link-val">@bintang_sutjipto</div>
+          </div>
+          <span class="contact-link-arrow">↗</span>
+        </a>
       </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section
-      id="projects"
-      class="min-h-screen px-4 md:px-10 py-20 bg-gradient-to-b from-gray-900 to-black"
-    >
-      <h3
-        class="text-center text-3xl font-bold text-purple-400 mb-10 purple-glow"
-      >
-        My Projects
-      </h3>
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Card Project -->
-        <div
-          class="glass p-6 rounded-2xl shadow-lg hover:scale-105 transition transform"
-        >
-          <h4 class="text-xl font-semibold text-purple-300 mb-2">Project 1</h4>
-          <p class="text-gray-300">
-            Form Login dengan HTML, CSS, JS
-          </p>
-          <iframe
-            src="https://tangbins.github.io/form-login/"
-            class="w-full h-96 rounded-lg border border-gray-700"
-          ></iframe>
-          <a
-            href="https://tangbins.github.io/form-login/"
-            target="_blank"
-            class="inline-block mt-4 px-4 py-2 bg-purple-600 rounded-lg text-black font-bold hover:bg-purple-500"
-            >Lihat Project</a
-          >
+    </div>
+    <div class="reveal" style="transition-delay:0.15s">
+      <div class="contact-form">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="John Doe" />
         </div>
-        <div
-          class="glass p-6 rounded-2xl shadow-lg hover:scale-105 transition transform"
-        >
-          <h4 class="text-xl font-semibold text-purple-300 mb-2">Project 2</h4>
-          <p class="text-gray-300">
-            Website AM Mart (Basic) dengan HTML, CSS, JS
-          </p>
-          <iframe
-            src="https://tangbins.github.io/am-mart-dummy/"
-            class="w-full h-96 rounded-lg border border-gray-700"
-          ></iframe>
-          <a
-            href="https://tangbins.github.io/am-mart-dummy/"
-            target="_blank"
-            class="inline-block mt-4 px-4 py-2 bg-purple-600 rounded-lg text-black font-bold hover:bg-purple-500"
-            >Lihat Project</a
-          >
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="john@example.com" />
         </div>
-        <div
-          class="glass p-6 rounded-2xl shadow-lg hover:scale-105 transition transform"
-        >
-          <h4 class="text-xl font-semibold text-purple-300 mb-2">Project 3</h4>
-          <p class="text-gray-300">
-            API Weather dengan HTML, CSS, JS, API
-          </p>
-          <iframe
-            src="https://tangbins.github.io/weather-now/"
-            class="w-full h-96 rounded-lg border border-gray-700"
-          ></iframe>
-          <a
-            href="https://tangbins.github.io/weather-now/"
-            target="_blank"
-            class="inline-block mt-4 px-4 py-2 bg-purple-600 rounded-lg text-black font-bold hover:bg-purple-500"
-            >Lihat Project</a
-          >
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Hi Bintang, I'd love to collaborate on..."></textarea>
         </div>
-        <div
-          class="glass p-6 rounded-2xl shadow-lg hover:scale-105 transition transform"
-        >
-          <h4 class="text-xl font-semibold text-purple-300 mb-2">Project 4</h4>
-          <p class="text-gray-300">
-            Simple New Year Card 1 dengan HTML, CSS, JS
-          </p>
-          <iframe
-            src="https://tangbins.github.io/happy-new-year/"
-            class="w-full h-96 rounded-lg border border-gray-700"
-          ></iframe>
-          <a
-            href="https://tangbins.github.io/happy-new-year/"
-            target="_blank"
-            class="inline-block mt-4 px-4 py-2 bg-purple-600 rounded-lg text-black font-bold hover:bg-purple-500"
-            >Lihat Project</a
-          >
-        </div>
-        <div
-          class="glass p-6 rounded-2xl shadow-lg hover:scale-105 transition transform"
-        >
-          <h4 class="text-xl font-semibold text-purple-300 mb-2">Project 5</h4>
-          <p class="text-gray-300">
-            Simple New Year Card 2 dengan HTML, CSS, JS
-          </p>
-          <iframe
-            src="https://tangbins.github.io/happy-new-year-2/"
-            class="w-full h-96 rounded-lg border border-gray-700"
-          ></iframe>
-          <a
-            href="https://tangbins.github.io/happy-new-year-2/"
-            target="_blank"
-            class="inline-block mt-4 px-4 py-2 bg-purple-600 rounded-lg text-black font-bold hover:bg-purple-500"
-            >Lihat Project</a
-          >
-        </div>
-        <div
-          class="glass p-6 rounded-2xl shadow-lg hover:scale-105 transition transform"
-        >
-          <h4 class="text-xl font-semibold text-purple-300 mb-2">Project 6</h4>
-          <p class="text-gray-300">
-            Simple New Year Card 3 dengan HTML, CSS, JS
-          </p>
-          <iframe
-            src="https://tangbins.github.io/happy-new-year-3/"
-            class="w-full h-96 rounded-lg border border-gray-700"
-          ></iframe>
-          <a
-            href="https://tangbins.github.io/happy-new-year-3/"
-            target="_blank"
-            class="inline-block mt-4 px-4 py-2 bg-purple-600 rounded-lg text-black font-bold hover:bg-purple-500"
-            >Lihat Project</a
-          >
-        </div>
+        <button class="form-submit">Send Message →</button>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- Photography Section -->
-    <section
-      id="photography"
-      class="min-h-screen px-4 md:px-10 py-20 bg-gradient-to-b from-black to-purple-950"
-    >
-      <h3
-        class="text-center text-3xl font-bold text-purple-400 mb-4 purple-glow"
-      >
-        Photography Works
-      </h3>
-      <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
-        A collection of visual stories captured through light, composition, and
-        emotion.
-      </p>
+<footer>
+  <p>© 2025 <span>Bintang Akbar Sutjipto</span> — All Rights Reserved</p>
+</footer>
 
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Photo Item -->
-        <div
-          class="glass rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition transform"
-        >
-          <img
-            src="images/bintang.jpeg"
-            alt="Photography 1"
-            class="w-full h-72 object-cover"
-          />
-        </div>
+<script>
+  // NAV SCROLL
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
 
-        <div
-          class="glass rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition transform"
-        >
-          <img
-            src="images/kak anom.jpg"
-            alt="Photography 2"
-            class="w-full h-72 object-cover"
-          />
-        </div>
+  // SCROLL REVEAL
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
 
-        <div
-          class="glass rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition transform"
-        >
-          <img
-            src="images/bunga.jpg"
-            alt="Photography 3"
-            class="w-full h-72 object-cover"
-          />
-        </div>
-
-        <div
-          class="glass rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition transform"
-        >
-          <img
-            src="images/kak ayu.jpg"
-            alt="Photography 4"
-            class="w-full h-72 object-cover"
-          />
-        </div>
-
-        <div
-          class="glass rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition transform"
-        >
-          <img
-            src="images/kak salsa.jpg"
-            alt="Photography 5"
-            class="w-full h-72 object-cover"
-          />
-        </div>
-
-        <div
-          class="glass rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition transform"
-        >
-          <img
-            src="images/kak ayu2.jpg"
-            alt="Photography 6"
-            class="w-full h-72 object-cover"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- Certificate Section -->
-    <section
-      id="certificates"
-      class="min-h-screen px-6 md:px-12 py-20 bg-gradient-to-b from-black to-gray-900"
-    >
-      <h3
-        class="text-center text-3xl md:text-4xl font-bold text-purple-400 mb-12 purple-glow"
-      >
-        Certificates
-      </h3>
-
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
-      >
-        <!-- Certificate Card -->
-        <div
-          class="glass p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform"
-        >
-          <img
-            src="images/sertifikat1.jpg"
-            alt="Certificate 1"
-            class="w-full h-56 object-cover rounded-xl border border-gray-700"
-          />
-          <h4 class="mt-4 text-xl font-semibold text-purple-300">
-            Sertifikat Magang Starcore Indonesia
-          </h4>
-          <p class="text-gray-400 mt-2 text-sm">
-            Magang membuat website survey dengan React Vite serta desain UI/UX dengan Figma
-          </p>
-        </div>
-
-        <div
-          class="glass p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform"
-        >
-          <img
-            src="images/sertifikat2.JPG"
-            alt="Certificate 2"
-            class="w-full h-56 object-cover rounded-xl border border-gray-700"
-          />
-          <h4 class="mt-4 text-xl font-semibold text-purple-300">
-            Sertifikat Iympact Mengajar
-          </h4>
-          <p class="text-gray-400 mt-2 text-sm">
-            Menjadi anggota pengajar serta PDD dari Iympac Mengajar Bogor
-          </p>
-        </div>
-
-        <div
-          class="glass p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform"
-        >
-          <img
-            src="images/sertifikat3.jpeg"
-            alt="Certificate 3"
-            class="w-full h-56 object-cover rounded-xl border border-gray-700"
-          />
-          <h4 class="mt-4 text-xl font-semibold text-purple-300">
-            Sertifikat Juara Lomba Coding Nasional
-          </h4>
-          <p class="text-gray-400 mt-2 text-sm">
-            Lomba Coding Nasional by Algorithmics Serpong X SoftUni Indonesia
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section
-      id="contact"
-      class="min-h-screen flex flex-col items-center justify-center px-4 md:px-10"
-    >
-      <h3 class="text-3xl font-bold text-purple-400 mb-6 purple-glow">
-        Get in Touch
-      </h3>
-      <div class="mb-10 text-center space-y-2 text-gray-300">
-        <p>
-          Email:
-          <a
-            href="mailto:sutjiptobintang@gmail.com"
-            class="text-purple-400 hover:underline"
-          >
-            sutjiptobintang@gmail.com
-          </a>
-        </p>
-
-        <p>
-          GitHub:
-          <a
-            href="https://github.com/tangbins"
-            target="_blank"
-            class="text-purple-400 hover:underline"
-          >
-            github.com/tangbins
-          </a>
-        </p>
-
-        <p>
-          LinkedIn:
-          <a
-            href="https://www.linkedin.com/in/bintang-akbar-sutjipto-b1677531b/"
-            target="_blank"
-            class="text-purple-400 hover:underline"
-          >
-            Bintang Akbar Sutjipto
-          </a>
-        </p>
-
-        <p>
-          Instagram:
-          <a
-            href="https://www.instagram.com/bintang_sutjipto/"
-            target="_blank"
-            class="text-purple-400 hover:underline"
-          >
-            @bintang_sutjipto
-          </a>
-        </p>
-      </div>
-      <form class="w-full max-w-lg glass p-8 rounded-2xl space-y-6">
-        <input
-          type="text"
-          placeholder="Your Name"
-          class="w-full p-3 rounded-lg bg-black text-white focus:outline-none focus:ring-2 focus:ring-purple-400"
-        />
-        <input
-          type="email"
-          placeholder="Your Email"
-          class="w-full p-3 rounded-lg bg-black text-white focus:outline-none focus:ring-2 focus:ring-purple-400"
-        />
-        <textarea
-          placeholder="Your Message"
-          class="w-full p-3 rounded-lg bg-black text-white focus:outline-none focus:ring-2 focus:ring-purple-400 h-32"
-        ></textarea>
-        <button
-          class="w-full py-3 bg-purple-600 text-black font-bold rounded-xl hover:bg-purple-500 transition"
-        >
-          Send Message
-        </button>
-      </form>
-    </section>
-
-    <!-- Footer -->
-    <footer
-      class="py-6 text-center text-gray-400 border-t border-gray-700 metallic-text"
-    >
-      © 2025 Bintang | All Rights Reserved
-    </footer>
-  </body>
+  // CURSOR GLOW on hero
+  const hero = document.getElementById('hero');
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    hero.style.background = `radial-gradient(ellipse at ${x}% ${y}%, rgba(139,92,246,0.06) 0%, transparent 60%)`;
+  });
+  hero.addEventListener('mouseleave', () => {
+    hero.style.background = '';
+  });
+</script>
+</body>
 </html>
